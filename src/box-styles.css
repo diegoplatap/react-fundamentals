@@ -8,12 +8,21 @@
 .box--large {
   width: 270px;
   height: 270px;
+  background-color: orange;
+  font-weight: 600;
+  font-style: italic;
 }
 .box--medium {
   width: 180px;
   height: 180px;
+  background-color: pink;
+  font-weight: 600;
+  font-style: italic;
 }
 .box--small {
   width: 90px;
   height: 90px;
+  background-color: lightblue;
+  font-weight: 600;
+  font-style: italic;
 }

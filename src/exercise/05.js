@@ -14,9 +14,72 @@ import '../box-styles.css'
 // 🐨 also use the style prop to make the font italic
 // 💰 Here are available style attributes: backgroundColor, fontStyle
 
-const smallBox = <div>small lightblue box</div>
-const mediumBox = <div>medium pink box</div>
-const largeBox = <div>large orange box</div>
+// const smallBox = <div className="box box--small">small lightblue box</div>
+// const mediumBox = <div className="box box--medium">medium pink box</div>
+// const largeBox = <div className="box box--large">large orange box</div>
+
+// function App() {
+//   return (
+//     <div
+//       style={{
+//         display: 'flex',
+//         flexDirection: 'column',
+//         justifyContent: 'center',
+//         alignItems: 'flex-start',
+//       }}
+//     >
+//       {smallBox}
+//       {mediumBox}
+//       {largeBox}
+//     </div>
+//   )
+// }
+
+// export default App
+
+// Extra credit #1
+
+// function Box({className = '', style, ...otherProps}) {
+//   return (
+//     <div
+//       className={`box ${className}`} // here doesn't matter the order!
+//       style={{fontStyle: 'italic', ...style}} // the user provider styles will override the default!
+//       {...otherProps}
+//     />
+//   )
+// }
+
+// const smallBox = <Box className="box--small">small lightblue box</Box>
+// const mediumBox = <Box className="box--medium">medium pink box</Box>
+// const largeBox = <Box className="box--large">large orange box</Box>
+
+// function App() {
+//   return (
+//     <div>
+//       {smallBox}
+//       {mediumBox}
+//       {largeBox}
+//       <Box>sizeless box</Box>
+//     </div>
+//   )
+// }
+
+// Extra credit # 2
+
+function Box({style, size, className, ...otherProps}) {
+  const sizeClassName = size ? `box--${size}` : ''
+  return (
+    <div
+      className={`box ${className} ${sizeClassName}`} // here doesn't matter the order!
+      style={{fontStyle: 'italic', ...style}} // the user provider styles will override the default!
+      {...otherProps}
+    />
+  )
+}
+
+const smallBox = <Box size="small">small lightblue box</Box>
+const mediumBox = <Box size="medium">medium pink box</Box>
+const largeBox = <Box size="large">large orange box</Box>
 
 function App() {
   return (
@@ -24,6 +87,7 @@ function App() {
       {smallBox}
       {mediumBox}
       {largeBox}
+      <Box>sizeless box</Box>
     </div>
   )
 }
